@@ -1,0 +1,323 @@
+/* Reset and general styles */
+* {
+    box-sizing: border-box;
+    
+}
+.fade-in{
+    color: #ddd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #34385f;
+    color: #000;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Navigation bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10pxpx 20px;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px #34385f;
+}
+
+.navbar a {
+    color: rgb(2, 2, 2);
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.navbar-center .logo {
+    width: 100px;
+    height: auto;
+    max-height: 50px;
+    object-fit: contain;
+}
+
+.navbar-right .icon {
+    width: 30px;
+    height: auto;
+    max-height: 30px;
+    object-fit: contain;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #34385f;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 999;
+    border-radius: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Main content area */
+.main-content {
+    margin-left: 200px; /* Adjust for sidebar width */
+    margin-top: 60px;
+    padding: 20px;
+    width: calc(75% - 240px); /* Adjusted width to leave space for ads */
+    transition: margin-left 0.3s, background-color 0.5s, color 0.5s;
+}
+
+.ad-section {
+    width: 25%; /* Width of the ad section */
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #ecf0f1;
+    color: #000;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Toggle switch for day/night mode */
+.toggle-switch-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #007BFF;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Article editor and published articles section */
+.container {
+    background: #34385f;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: containerAnimation 1s ease-out;
+    transition: background-color 0.5s, color 0.5s;
+    
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+    transition: color 0.5s;
+}
+
+#articleInfo {
+    margin-bottom: 20px;
+}
+
+#articleInfo input, #articleInfo select {
+    width: 100%; /* Full width inputs */
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease, background-color 0.5s, color 0.5s;
+}
+
+#articleInfo input:focus, #articleInfo select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#editor {
+    margin-bottom: 20px;
+}
+
+#publishButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease, background-color 0.5s, color 0.5s;
+    animation: buttonAnimation 1s ease-out;
+}
+
+#publishButton:hover {
+    background: #0056b3;
+}
+
+#publishedArticles {
+    margin-top: 20px;
+}
+
+.article {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:
+    1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.5s, color 0.5s;
+}
+
+.article:hover {
+    transform: scale(1.02);
+}
+
+.article button {
+    float: right;
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background 0.3s ease, background-color 0.5s, color 0.5s;
+}
+
+.article button:hover {
+    background: #c82333;
+}
+
+.article-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@keyframes containerAnimation {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes buttonAnimation {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 1.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+.icon{
+    padding-right: 10px;
+}
+
+
+
+
+
+

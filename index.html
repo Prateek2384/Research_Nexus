@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include CKEditor CDN -->
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#">Guidelines to write</a>
+        </div>
+        <div class="navbar-center">
+            <img src="./Research_Nexus-removebg1.png" alt="Logo" class="logo">
+        </div>
+        <div class="navbar-right">
+            <img src="./OIP (1).jpeg" alt="Help" class="icon">
+            <img src="./profile-logo-3.png" alt="Profile" class="icon">
+        </div>
+    </nav>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Add Post</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#">Work with Us</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1 class="fade-in">Write Here</h1>
+            <div id="articleInfo" class="slide-in">
+                <input type="text" id="articleName" placeholder="Article Name">
+                <select id="articleTopic" onchange="updateSubtopics()">
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Health">Health</option>
+                    <option value="Education">Education</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Politics">Politics</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Travel">Travel</option>
+                </select>
+                <select id="articleSubtopic">
+                    <option value="" disabled selected>Select a subtopic</option>
+                </select>
+            </div>
+            <div id="editor" class="slide-in">
+                <textarea id="articleContent" placeholder="Write your article here..."></textarea>
+            </div>
+            <button id="publishButton" class="fade-in">Publish</button>
+            <div id="publishedArticles" class="fade-in">
+                <h2>Published Articles</h2>
+                <div id="articlesList"></div>
+            </div>
+        <div class="ad-section">
+            <p>Advertisement space</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize CKEditor
+        CKEDITOR.replace('articleContent');
+    </script>
+</body>
+</html>
